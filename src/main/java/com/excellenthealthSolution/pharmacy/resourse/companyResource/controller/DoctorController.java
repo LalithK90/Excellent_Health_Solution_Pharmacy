@@ -1,4 +1,4 @@
-/*
+
 package com.excellenthealthSolution.pharmacy.resourse.companyResource.controller;
 
 import com.excellenthealthSolution.pharmacy.common.service.DateTimeAgeService;
@@ -37,7 +37,7 @@ public class DoctorController {
         this.dateTimeAgeService = dateTimeAgeService;
         this.userService = userService;
     }
-
+/*
     @RequestMapping
     public String doctorPage(Model model) {
         model.addAttribute("doctors", doctorService.findAll());
@@ -111,6 +111,6 @@ public class DoctorController {
     public String search(Model model, Doctor doctor) {
         model.addAttribute("doctorDetail", doctorService.search(doctor));
         return "doctor/doctor-detail";
-    }
+    }*/
 }
-*/
+
