@@ -1,0 +1,26 @@
+spring:
+  port: 8585
+  datasource:
+    data-url: jdbc:mysql://localhost:3306/excellent_pharamcy?autoReconnect=true&useSSL=false
+    data-password: 12345
+    data-username: haritha
+
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: auto
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: excellenthealthsol21ution@gmail.com
+    password: 2018
+    properties:
+      mail:
+        smtp:
+          auth: true
+        starttls:
+          enable: true
