@@ -37,13 +37,13 @@ public class DoctorController {
         this.dateTimeAgeService = dateTimeAgeService;
         this.userService = userService;
     }
-/*
+
     @RequestMapping
     public String doctorPage(Model model) {
         model.addAttribute("doctors", doctorService.findAll());
         return "doctor/doctor";
     }
-
+/*
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String doctorView(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("doctorDetail", doctorService.findById(id));
