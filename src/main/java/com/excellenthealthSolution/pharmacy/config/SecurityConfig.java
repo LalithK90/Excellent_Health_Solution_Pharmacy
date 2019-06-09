@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    public SecurityConfig(DataSource dataSource, CustomUserDetailsService userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public SecurityConfig(CustomUserDetailsService userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userDetailsService = userDetailsService;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
@@ -45,35 +45,36 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-/*        http.csrf().disable();
-        http.authorizeRequests().antMatchers("/").permitAll();*/
+        http.csrf().disable();
+        http.authorizeRequests().antMatchers("/").permitAll();
 
  //for developing easy to give permission all link
 
-        http.
+        /*http.
                 authorizeRequests()
                 //Always users can access without login
-                    .antMatchers(
-                            "/index",
-                            "/favicon.ico",
-                            "/img",
-                            "/css",
-                            "/js",
-                            "/font").permitAll()
-                    .antMatchers("/login").permitAll()
-                    .antMatchers("/invoiceProcess").permitAll()
+                .antMatchers(
+                        "/index",
+                        "/favicon.ico",
+                        "/img/**",
+                        "/css/**",
+                        "/js/**",
+                        "/fonts/**",
+                        "/divTool/**",
+                        "/fontawesome/**").permitAll()
+                .antMatchers("/login", "/select/**").permitAll()
 
                 //Need to login for access those are
                     .antMatchers("/employee/**").hasRole("MANAGER")
                     .antMatchers("/user/**").hasRole("MANAGER")
-                    .antMatchers("/invoiceProcess/add").hasRole("CHASHIER")
+                    .antMatchers("/invoiceProcess/add").hasRole("CASHIER")
                     .anyRequest()
                     .authenticated()
                 .and()
                 // Login form
                 .formLogin()
                     .loginPage("/login")
-                    .defaultSuccessUrl("/mainwindow")
+                    .defaultSuccessUrl("/mainWindow")
                 //Username and password for validation
                 .usernameParameter("username")
                 .passwordParameter("password")
@@ -89,6 +90,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //Cross site disable
                 .and()
                     .csrf()
-                .disable();
+                .disable();*/
+
+
    }
 }

@@ -1,6 +1,6 @@
 package com.excellenthealthSolution.pharmacy.general.consultation.service;
 
-import com.excellenthealthSolution.pharmacy.common.interfaces.AbstractService;
+import com.excellenthealthSolution.pharmacy.util.interfaces.AbstractService;
 import com.excellenthealthSolution.pharmacy.general.consultation.dao.ConsultationDao;
 import com.excellenthealthSolution.pharmacy.general.consultation.entity.Consultations;
 import org.springframework.data.domain.Example;

@@ -35,6 +35,9 @@ dependencies {
 	compile group: 'org.apache.poi', name: 'poi', version: '3.8'
 	//================= Following jar is need to generate pdf file -https://mvnrepository.com/artifact/com.itextpdf/itextpdf =================//
 	compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.9'
+	//===============junit 5 
+	// https://mvnrepository.com/artifact/org.junit/junit5-engine
+	compile group: 'org.junit', name: 'junit5-engine', version: '5.0.0-ALPHA'
 	runtimeOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'mysql:mysql-connector-java'
 	compileOnly 'org.projectlombok:lombok'

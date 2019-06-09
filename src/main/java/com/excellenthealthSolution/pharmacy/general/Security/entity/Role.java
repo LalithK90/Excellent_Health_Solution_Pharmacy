@@ -1,6 +1,8 @@
 package com.excellenthealthSolution.pharmacy.general.Security.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -10,28 +12,16 @@ import java.util.Objects;
 @Table
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Role {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true)
     private Integer id;
 
     private String roleName;
 
-    public Role() {
-    }
-
-    public String getName() {
-        return roleName;
-    }
-
-    public void setName(String name) {
-        this.roleName = name;
-    }
-
-    public Role(String name) {
-        this.roleName = name;
-    }
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;

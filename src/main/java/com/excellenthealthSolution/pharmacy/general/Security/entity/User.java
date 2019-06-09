@@ -1,19 +1,22 @@
 package com.excellenthealthSolution.pharmacy.general.Security.entity;
 
-import com.excellenthealthSolution.pharmacy.resourse.companyResource.entity.Employee;
+import com.excellenthealthSolution.pharmacy.resourses.company.entity.Employee;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 @JsonIgnoreProperties(value ="createdDate", allowGetters = true)
 public class User {
     @Id
@@ -45,7 +48,7 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-    public Integer getId() {
+/*    public Integer getId() {
         return id;
     }
 
@@ -123,7 +126,7 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }
+    }*/
 
 
 
