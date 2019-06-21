@@ -1,4 +1,4 @@
-package com.excellenthealthSolution.pharmacy.general.Security.entity;
+package com.excellenthealthSolution.pharmacy.general.security.entity;
 
 import com.excellenthealthSolution.pharmacy.resourses.company.entity.Employee;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

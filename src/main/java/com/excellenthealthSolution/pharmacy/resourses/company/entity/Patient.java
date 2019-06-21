@@ -62,16 +62,4 @@ public class Patient {
     private LocalDate updatedAt;
 
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Patient)) return false;
-        Patient patient = (Patient) obj;
-        return Objects.equals(id, patient.id);
-}
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }

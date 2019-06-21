@@ -1,7 +1,7 @@
-package com.excellenthealthSolution.pharmacy.general.Security.service;
+package com.excellenthealthSolution.pharmacy.general.security.service;
 
-        import com.excellenthealthSolution.pharmacy.general.Security.CustomUserDetails;
-        import com.excellenthealthSolution.pharmacy.general.Security.entity.User;
+        import com.excellenthealthSolution.pharmacy.general.security.CustomUserDetails;
+        import com.excellenthealthSolution.pharmacy.general.security.entity.User;
         import org.springframework.beans.factory.annotation.Autowired;
         import org.springframework.security.core.userdetails.UserDetails;
         import org.springframework.security.core.userdetails.UserDetailsService;

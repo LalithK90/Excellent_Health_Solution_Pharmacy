@@ -1,8 +1,8 @@
-package com.excellenthealthSolution.pharmacy.general.Security.service;
+package com.excellenthealthSolution.pharmacy.general.security.service;
 
 import com.excellenthealthSolution.pharmacy.util.interfaces.AbstractService;
-import com.excellenthealthSolution.pharmacy.general.Security.dao.UserDao;
-import com.excellenthealthSolution.pharmacy.general.Security.entity.User;
+import com.excellenthealthSolution.pharmacy.general.security.dao.UserDao;
+import com.excellenthealthSolution.pharmacy.general.security.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;

@@ -1,12 +1,11 @@
-package com.excellenthealthSolution.pharmacy.general.Security.dao;
+package com.excellenthealthSolution.pharmacy.general.security.dao;
 
-import com.excellenthealthSolution.pharmacy.general.Security.entity.User;
+import com.excellenthealthSolution.pharmacy.general.security.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
 

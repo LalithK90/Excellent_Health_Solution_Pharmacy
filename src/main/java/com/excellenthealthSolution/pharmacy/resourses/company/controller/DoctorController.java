@@ -2,7 +2,7 @@
 package com.excellenthealthSolution.pharmacy.resourses.company.controller;
 
 import com.excellenthealthSolution.pharmacy.util.DateTimeAgeService;
-import com.excellenthealthSolution.pharmacy.general.Security.service.UserService;
+import com.excellenthealthSolution.pharmacy.general.security.service.UserService;
 import com.excellenthealthSolution.pharmacy.general.consultation.service.ConsultationService;
 import com.excellenthealthSolution.pharmacy.resourses.company.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;

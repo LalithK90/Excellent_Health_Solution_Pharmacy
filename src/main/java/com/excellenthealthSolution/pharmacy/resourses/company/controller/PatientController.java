@@ -3,7 +3,7 @@ package com.excellenthealthSolution.pharmacy.resourses.company.controller;
 
 import com.excellenthealthSolution.pharmacy.util.DateTimeAgeService;
 import com.excellenthealthSolution.pharmacy.util.EmailService;
-import com.excellenthealthSolution.pharmacy.general.Security.service.UserService;
+import com.excellenthealthSolution.pharmacy.general.security.service.UserService;
 import com.excellenthealthSolution.pharmacy.general.consultation.entity.Enum.Gender;
 import com.excellenthealthSolution.pharmacy.general.consultation.entity.Enum.Title;
 import com.excellenthealthSolution.pharmacy.resourses.company.entity.Patient;

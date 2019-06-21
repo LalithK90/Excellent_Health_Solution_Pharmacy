@@ -2,9 +2,9 @@
 package com.excellenthealthSolution.pharmacy.resourses.company.controller;
 
 import com.excellenthealthSolution.pharmacy.util.DateTimeAgeService;
-import com.excellenthealthSolution.pharmacy.general.Security.entity.User;
-import com.excellenthealthSolution.pharmacy.general.Security.service.RoleService;
-import com.excellenthealthSolution.pharmacy.general.Security.service.UserService;
+import com.excellenthealthSolution.pharmacy.general.security.entity.User;
+import com.excellenthealthSolution.pharmacy.general.security.service.RoleService;
+import com.excellenthealthSolution.pharmacy.general.security.service.UserService;
 import com.excellenthealthSolution.pharmacy.resourses.company.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

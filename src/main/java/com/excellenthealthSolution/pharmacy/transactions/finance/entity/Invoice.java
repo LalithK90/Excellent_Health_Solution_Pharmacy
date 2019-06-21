@@ -1,6 +1,6 @@
 package com.excellenthealthSolution.pharmacy.transactions.finance.entity;
 
-import com.excellenthealthSolution.pharmacy.general.Security.entity.User;
+import com.excellenthealthSolution.pharmacy.general.security.entity.User;
 import com.excellenthealthSolution.pharmacy.resourses.company.entity.Doctor;
 import com.excellenthealthSolution.pharmacy.resourses.company.entity.Patient;
 import com.excellenthealthSolution.pharmacy.transactions.finance.entity.Enum.InvoicePrintOrNot;

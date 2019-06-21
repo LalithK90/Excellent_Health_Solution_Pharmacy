@@ -1,6 +1,6 @@
-package com.excellenthealthSolution.pharmacy.general.Security.dao;
+package com.excellenthealthSolution.pharmacy.general.security.dao;
 
-import com.excellenthealthSolution.pharmacy.general.Security.entity.Role;
+import com.excellenthealthSolution.pharmacy.general.security.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

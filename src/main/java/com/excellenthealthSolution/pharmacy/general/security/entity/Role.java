@@ -1,4 +1,4 @@
-package com.excellenthealthSolution.pharmacy.general.Security.entity;
+package com.excellenthealthSolution.pharmacy.general.security.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

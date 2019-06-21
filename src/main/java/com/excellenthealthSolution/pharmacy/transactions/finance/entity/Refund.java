@@ -1,6 +1,6 @@
 package com.excellenthealthSolution.pharmacy.transactions.finance.entity;
 
-import com.excellenthealthSolution.pharmacy.general.Security.entity.User;
+import com.excellenthealthSolution.pharmacy.general.security.entity.User;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;

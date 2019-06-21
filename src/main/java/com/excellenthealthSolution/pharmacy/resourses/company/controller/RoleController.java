@@ -1,8 +1,8 @@
 /*
 package com.excellenthealthSolution.pharmacy.resourses.company.controller;
 
-import com.excellenthealthSolution.pharmacy.general.Security.entity.Role;
-import com.excellenthealthSolution.pharmacy.general.Security.service.RoleService;
+import com.excellenthealthSolution.pharmacy.general.security.entity.Role;
+import com.excellenthealthSolution.pharmacy.general.security.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
