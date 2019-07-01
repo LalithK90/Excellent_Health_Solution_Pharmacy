@@ -1,4 +1,4 @@
-package com.excellenthealthSolution.pharmacy.general;
+package com.excellenthealthSolution.pharmacy.general.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
