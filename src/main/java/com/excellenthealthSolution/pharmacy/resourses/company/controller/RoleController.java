@@ -1,4 +1,3 @@
-/*
 package com.excellenthealthSolution.pharmacy.resourses.company.controller;
 
 import com.excellenthealthSolution.pharmacy.general.security.entity.Role;
@@ -82,4 +81,3 @@ public class RoleController {
         return "role/role-detail";
     }
 }
-*/

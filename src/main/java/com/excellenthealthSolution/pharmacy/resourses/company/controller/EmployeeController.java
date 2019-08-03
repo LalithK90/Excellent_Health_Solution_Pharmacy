@@ -1,4 +1,3 @@
-/*
 package com.excellenthealthSolution.pharmacy.resourses.company.controller;
 
 import com.excellenthealthSolution.pharmacy.util.DateTimeAgeService;
@@ -131,7 +130,7 @@ public class EmployeeController {
                     "\n "+employee.getMobile()+
                     "\n "+employee.getLand()+
                     "\n "+employee.getAddress()+
-                    "\n "+employee.getDoassignment()+
+                    "\n "+employee.getDateOfAssignment()+
                     "\n\n\n\n\n Highly advice you, if there is any changes on your details, Please informed the management" +
                     "\n If you update your date up to date with us, otherwise we will not have to provide better service to you." +
                     "\n \n \n   Thank You" +
@@ -160,7 +159,7 @@ public class EmployeeController {
                     "\n "+employee.getMobile()+
                     "\n "+employee.getLand()+
                     "\n "+employee.getAddress()+
-                    "\n "+employee.getDoassignment()+
+                    "\n "+employee.getDateOfAssignment()+
                     "\n\n\n\n\n Highly advice you, if there is any changes on your details, Please informed the management" +
                     "\n If you update your date up to date with us, otherwise we will not have to provide better service to you." +
                     "\n \n \n   Thank You" +
@@ -197,4 +196,3 @@ public class EmployeeController {
     }
 
 }
-*/

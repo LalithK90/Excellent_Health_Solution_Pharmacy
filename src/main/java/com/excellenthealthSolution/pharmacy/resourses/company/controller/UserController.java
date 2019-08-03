@@ -1,4 +1,3 @@
-/*
 package com.excellenthealthSolution.pharmacy.resourses.company.controller;
 
 import com.excellenthealthSolution.pharmacy.util.DateTimeAgeService;
@@ -16,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
+
+
 
 @Controller
 @RequestMapping("/user")
@@ -60,6 +61,7 @@ public class UserController {
         model.addAttribute("addStatus", true);
         model.addAttribute("employee", employeeService.findAll());
         model.addAttribute("role", roleService.findAll());
+        model.addAttribute("user", new User());
         return "user/addUser";
     }
 
@@ -79,9 +81,6 @@ public class UserController {
             userService.persist(user);
         }else {
             user.setEmployee(employeeService.findById(user.getEmployee().getId()));
-            */
-/*user.setRoles(roleService.findById(user.getRoles().getId()));*//*
-
             user.setCreatedDate(dateTimeAgeService.getCurrentDate());
             user.setEnabled(true);
             userService.persist(user);
@@ -102,4 +101,3 @@ public class UserController {
         return "user/user-detail";
     }
 }
-*/
