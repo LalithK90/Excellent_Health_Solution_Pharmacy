@@ -1,6 +1,6 @@
 package com.excellenthealthSolution.pharmacy.config;
 
-import com.excellenthealthSolution.pharmacy.general.security.service.UserDetailsServiceImpl;
+import com.excellenthealthSolution.pharmacy.security.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
