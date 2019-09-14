@@ -1,15 +1,14 @@
 package com.excellenthealthSolution.pharmacy.asset.suppliers.entity;
 
-import com.excellenthealthSolution.pharmacy.general.Enum.Gender;
-import com.excellenthealthSolution.pharmacy.general.Enum.Title;
+import com.excellenthealthSolution.pharmacy.asset.commonAsset.Enum.Gender;
+import com.excellenthealthSolution.pharmacy.asset.commonAsset.Enum.Title;
+import com.excellenthealthSolution.pharmacy.util.audit.AuditEntity;
 import lombok.*;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,12 +17,8 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
-public class SupplierContactPerson {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true)
-    private Integer id;
+@EqualsAndHashCode( callSuper = true )
+public class SupplierContactPerson extends AuditEntity {
 
     @NotNull(message = "Number is required")
     private String number;
@@ -50,12 +45,6 @@ public class SupplierContactPerson {
     private String land;
 
     private String designation;
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate createdAt;
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate updatedAt;
 
     @OneToMany(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
     private List<Supplier> supplier = new ArrayList<>();

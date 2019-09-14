@@ -1,11 +1,11 @@
 package com.excellenthealthSolution.pharmacy.asset.employee.entity;
 
-import com.excellenthealthSolution.pharmacy.general.Enum.Gender;
-import com.excellenthealthSolution.pharmacy.general.Enum.Title;
+import com.excellenthealthSolution.pharmacy.asset.commonAsset.Enum.Gender;
+import com.excellenthealthSolution.pharmacy.asset.commonAsset.Enum.Title;
 import com.excellenthealthSolution.pharmacy.asset.employee.entity.Enum.CivilStatus;
 import com.excellenthealthSolution.pharmacy.asset.employee.entity.Enum.Designation;
 import com.excellenthealthSolution.pharmacy.asset.employee.entity.Enum.EmployeeStatus;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.excellenthealthSolution.pharmacy.util.audit.AuditEntity;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -20,13 +20,8 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-@JsonIgnoreProperties(value = {"createdAt", "updatedAt"},allowGetters = true)
-public class Employee {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true)
-    private Integer id;
+@EqualsAndHashCode( callSuper = true )
+public class Employee extends AuditEntity {
 
     @NotNull(message = "Number is required")
     private String number;
@@ -72,13 +67,6 @@ public class Employee {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfAssignment;
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate createdAt;
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate updatedAt;
-
 
 
 }

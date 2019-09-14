@@ -1,8 +1,8 @@
 package com.excellenthealthSolution.pharmacy.asset.patient.entity;
 
-import com.excellenthealthSolution.pharmacy.general.Enum.Gender;
-import com.excellenthealthSolution.pharmacy.general.Enum.Title;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.excellenthealthSolution.pharmacy.asset.commonAsset.Enum.Gender;
+import com.excellenthealthSolution.pharmacy.asset.commonAsset.Enum.Title;
+import com.excellenthealthSolution.pharmacy.util.audit.AuditEntity;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -16,49 +16,37 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
-@JsonIgnoreProperties(value = {"createdAt", "updatedAt"},allowGetters = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class Patient {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true)
-    private Integer id;
+public class Patient extends AuditEntity {
 
-    @Column(unique = true)
-    @NotNull(message = "This code is already add or enter incorrectly")
+    @Column( unique = true )
+    @NotNull( message = "This code is already add or enter incorrectly" )
     private String number;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated( EnumType.STRING )
     private Title title;
 
     private String name;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated( EnumType.STRING )
     private Gender gender;
 
-    @Column(unique = true)
-    @Size(message = "NIC should be contained character 10 or 12", min = 10, max = 12)
+    @Column( unique = true )
+    @Size( message = "NIC should be contained character 10 or 12", min = 10, max = 12 )
     private String nic;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @NotNull(message = "Birthday should be included")
+    @DateTimeFormat( pattern = "yyyy-MM-dd" )
+    @NotNull( message = "Birthday should be included" )
     private LocalDate dateOfBirth;
 
-    @Email(message = "Please provide a valid Email")
+    @Email( message = "Please provide a valid Email" )
     private String email;
 
-    @Min(value = 9, message = "Should be needed to enter valid mobile number")
+    @Min( value = 9, message = "Should be needed to enter valid mobile number" )
     private String mobile;
 
     private String land;
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate createdAt;
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate updatedAt;
-
 
 }

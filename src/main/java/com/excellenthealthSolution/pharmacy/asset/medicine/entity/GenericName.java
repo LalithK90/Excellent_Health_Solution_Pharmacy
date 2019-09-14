@@ -9,7 +9,6 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@JsonIgnoreProperties(value = {"createdAt", "updatedAt"},allowGetters = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode

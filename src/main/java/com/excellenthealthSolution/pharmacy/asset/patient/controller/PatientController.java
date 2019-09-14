@@ -1,10 +1,10 @@
 package com.excellenthealthSolution.pharmacy.asset.patient.controller;
 
-import com.excellenthealthSolution.pharmacy.util.DateTimeAgeService;
-import com.excellenthealthSolution.pharmacy.util.EmailService;
+import com.excellenthealthSolution.pharmacy.util.service.DateTimeAgeService;
+import com.excellenthealthSolution.pharmacy.util.service.EmailService;
 import com.excellenthealthSolution.pharmacy.security.service.UserService;
-import com.excellenthealthSolution.pharmacy.general.Enum.Gender;
-import com.excellenthealthSolution.pharmacy.general.Enum.Title;
+import com.excellenthealthSolution.pharmacy.asset.commonAsset.Enum.Gender;
+import com.excellenthealthSolution.pharmacy.asset.commonAsset.Enum.Title;
 import com.excellenthealthSolution.pharmacy.asset.patient.entity.Patient;
 import com.excellenthealthSolution.pharmacy.asset.patient.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;

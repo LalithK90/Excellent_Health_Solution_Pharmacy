@@ -1,4 +1,4 @@
-package com.excellenthealthSolution.pharmacy.general.Enum;
+package com.excellenthealthSolution.pharmacy.asset.commonAsset.Enum;
 
 public enum Gender {
     MALE("Male"),

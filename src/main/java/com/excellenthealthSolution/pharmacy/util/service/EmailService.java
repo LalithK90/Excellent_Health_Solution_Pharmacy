@@ -1,4 +1,4 @@
-package com.excellenthealthSolution.pharmacy.util;
+package com.excellenthealthSolution.pharmacy.util.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

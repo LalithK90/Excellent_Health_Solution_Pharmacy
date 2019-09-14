@@ -1,7 +1,7 @@
 
 package com.excellenthealthSolution.pharmacy.asset.prescriber.controller;
 
-import com.excellenthealthSolution.pharmacy.util.DateTimeAgeService;
+import com.excellenthealthSolution.pharmacy.util.service.DateTimeAgeService;
 import com.excellenthealthSolution.pharmacy.security.service.UserService;
 import com.excellenthealthSolution.pharmacy.asset.prescriber.service.ConsultationService;
 import com.excellenthealthSolution.pharmacy.asset.prescriber.service.DoctorService;

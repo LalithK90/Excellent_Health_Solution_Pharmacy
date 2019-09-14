@@ -1,11 +1,11 @@
 package com.excellenthealthSolution.pharmacy.asset.employee.controller;
 
-import com.excellenthealthSolution.pharmacy.util.DateTimeAgeService;
-import com.excellenthealthSolution.pharmacy.util.EmailService;
+import com.excellenthealthSolution.pharmacy.util.service.DateTimeAgeService;
+import com.excellenthealthSolution.pharmacy.util.service.EmailService;
 import com.excellenthealthSolution.pharmacy.security.entity.User;
 import com.excellenthealthSolution.pharmacy.security.service.UserService;
-import com.excellenthealthSolution.pharmacy.general.Enum.Gender;
-import com.excellenthealthSolution.pharmacy.general.Enum.Title;
+import com.excellenthealthSolution.pharmacy.asset.commonAsset.Enum.Gender;
+import com.excellenthealthSolution.pharmacy.asset.commonAsset.Enum.Title;
 import com.excellenthealthSolution.pharmacy.asset.employee.entity.Employee;
 import com.excellenthealthSolution.pharmacy.asset.employee.entity.Enum.CivilStatus;
 import com.excellenthealthSolution.pharmacy.asset.employee.entity.Enum.Designation;

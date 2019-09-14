@@ -12,7 +12,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-@JsonIgnoreProperties( value = {"createdAt", "updatedAt"}, allowGetters = true )
 public class Medicine {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )

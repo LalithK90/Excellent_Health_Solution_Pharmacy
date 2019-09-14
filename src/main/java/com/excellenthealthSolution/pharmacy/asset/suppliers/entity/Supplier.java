@@ -1,5 +1,6 @@
 package com.excellenthealthSolution.pharmacy.asset.suppliers.entity;
 
+import com.excellenthealthSolution.pharmacy.util.audit.AuditEntity;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -15,12 +16,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@EqualsAndHashCode
-public class Supplier {
-    @Id
-    @Column(unique = true)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+@EqualsAndHashCode( callSuper = true )
+public class Supplier extends AuditEntity {
 
     @Size(min = 4, message = "Provide valid name")
     private String name;
@@ -33,12 +30,5 @@ public class Supplier {
 
     @Email(message = "Provide valid email")
     private String email;
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate createdAt;
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate updatedAt;
-
 
 }

@@ -5,6 +5,7 @@ import com.excellenthealthSolution.pharmacy.asset.prescriber.entity.Doctor;
 import com.excellenthealthSolution.pharmacy.asset.patient.entity.Patient;
 import com.excellenthealthSolution.pharmacy.asset.process.finance.entity.Enum.InvoicePrintOrNot;
 import com.excellenthealthSolution.pharmacy.asset.process.finance.entity.Enum.PaymentMethod;
+import com.excellenthealthSolution.pharmacy.util.audit.AuditEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -19,13 +20,9 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@JsonIgnoreProperties(value = {"createdAt", "updatedAt","balance","discountAmount","bankName","cardNumber"}, allowGetters = true)
-public class Invoice {
-    @Id
-    @Column(name = "id", nullable = false, unique = true)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+@EqualsAndHashCode( callSuper = true )
+@JsonIgnoreProperties(value = {"balance","discountAmount","bankName","cardNumber"}, allowGetters = true)
+public class Invoice extends AuditEntity {
 
     @Column(name = "number", nullable = false, unique = true)
     private Integer number;
@@ -65,13 +62,10 @@ public class Invoice {
     @Enumerated(EnumType.STRING)
     private InvoicePrintOrNot invoicePrintOrNot;
 
-    @Column(name = "created_at", nullable = false, updatable = false)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate createdAt;
 
     @Column(nullable = false, updatable = false)
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime invoicedAt;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate invoicedAt;
 
 
     @ManyToOne
@@ -82,9 +76,6 @@ public class Invoice {
 
     @ManyToOne
     private DiscountRatio discountRatio;
-
-    @ManyToOne
-    private User user;
 
 
     @ManyToOne

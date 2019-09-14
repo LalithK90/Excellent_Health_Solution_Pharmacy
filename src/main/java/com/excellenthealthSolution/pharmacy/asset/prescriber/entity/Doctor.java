@@ -1,27 +1,20 @@
 package com.excellenthealthSolution.pharmacy.asset.prescriber.entity;
 
-import com.excellenthealthSolution.pharmacy.general.Enum.Gender;
-import com.excellenthealthSolution.pharmacy.general.Enum.Title;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.excellenthealthSolution.pharmacy.asset.commonAsset.Enum.Gender;
+import com.excellenthealthSolution.pharmacy.asset.commonAsset.Enum.Title;
+import com.excellenthealthSolution.pharmacy.util.audit.AuditEntity;
 import lombok.*;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import java.time.LocalDate;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-@JsonIgnoreProperties(value = ("updateDate"),allowGetters = true)
-public class Doctor {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true)
-    private Integer id;
+@EqualsAndHashCode( callSuper = true )
+public class Doctor extends AuditEntity {
 
     @Enumerated(EnumType.STRING)
     private Title title;
@@ -45,8 +38,5 @@ public class Doctor {
     private String email;
 
     private String description;
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate createAt;
 
 }
