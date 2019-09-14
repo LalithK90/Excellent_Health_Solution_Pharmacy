@@ -1,12 +1,9 @@
 package com.excellenthealthSolution.pharmacy.security.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
-import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table
@@ -16,22 +13,13 @@ import java.util.Objects;
 @NoArgsConstructor
 public class Role {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true)
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
+    @Column( unique = true )
     private Integer id;
 
     private String roleName;
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Role)) return false;
-        Role role = (Role) obj;
-        return Objects.equals(id, role.id);
-    }
+    @ManyToMany( mappedBy = "roles", fetch = FetchType.EAGER )
+    private Set< User > users;
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }

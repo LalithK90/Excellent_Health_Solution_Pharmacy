@@ -20,6 +20,6 @@ public class GenericName {
 
     private String name;
 
-    @OneToMany(mappedBy = "generic_name")
+    @OneToMany(mappedBy = "genericName")
     private List<Medicine> medicines;
 }

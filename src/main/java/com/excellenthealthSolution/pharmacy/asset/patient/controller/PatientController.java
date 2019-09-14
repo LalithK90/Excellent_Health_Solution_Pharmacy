@@ -1,3 +1,4 @@
+/*
 package com.excellenthealthSolution.pharmacy.asset.patient.controller;
 
 import com.excellenthealthSolution.pharmacy.util.service.DateTimeAgeService;
@@ -169,3 +170,4 @@ public class PatientController {
     }
 
 }
+*/
