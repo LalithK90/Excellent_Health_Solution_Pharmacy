@@ -131,17 +131,6 @@
                         <!-- /.col-sm-6 -->
                         <div class="col-sm-6 text-left">
                             <div class="form-group">
-                                <label class="control-label col-md-4" th:for="bloodGroup">Blood Group</label>
-                                <div class="col-md-4">
-                                    <select class="form-control" id="bloodGroup" th:field="*{bloodGroup}">
-                                        <option th:each="bloodGroups : ${bloodGroup}"
-                                                th:text="${bloodGroups.bloodGroup}"
-                                                th:value="${bloodGroups}"></option>
-                                    </select>
-                                    <span class="error" th:errors="*{gender}" th:if="${#fields.hasErrors('gender')}">Error Gender</span>
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="control-label col-md-4" for="civilStatus">Civil Status</label>
                                 <div class="col-md-4">
                                     <select class="form-control" id="civilStatus" th:field="*{civilStatus}">
@@ -204,7 +193,7 @@
                                 <label class="control-label col-md-4" for="employeeStatus">Employee Status</label>
                                 <div class="col-md-4">
                                     <!-- /.col-md-8 -->
-                                    <select *{employeeStatus} class="form-control" id="employeeStatus">
+                                    <select th:field="*{employeeStatus}" class="form-control" id="employeeStatus">
                                     <option th:each="employeeStatus : ${employeeStatus}"
                                             th:text="${employeeStatus.employeeStatus}"
                                             th:value="${employeeStatus}"></option>

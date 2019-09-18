@@ -31,7 +31,7 @@ public class MvcConfig implements WebMvcConfigurer {
                 .setViewName("mainwindow");
             }
 
-    @Override
+   /* @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         //can be impliment like folowing also
         		//registry.addResourceHandler("/resources/**").addResourceLocations("file:/resources/upload/");
@@ -42,7 +42,7 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/js/**")
                 .addResourceLocations("classpath:/static/js/");
 
-    }
+    }*/
 
     //Bean configuration
     @Bean

@@ -1,6 +1,5 @@
 package com.excellenthealthSolution.pharmacy.asset.process.finance.entity;
 
-import com.excellenthealthSolution.pharmacy.security.entity.User;
 import com.excellenthealthSolution.pharmacy.util.audit.AuditEntity;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;

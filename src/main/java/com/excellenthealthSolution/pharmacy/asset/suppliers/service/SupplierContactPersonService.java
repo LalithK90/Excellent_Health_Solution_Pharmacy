@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class SupplierContactPersonService implements AbstractService<SupplierContactPerson, Integer> {
+public class SupplierContactPersonService implements AbstractService<SupplierContactPerson, Long> {
     @Override
     public List<SupplierContactPerson> findAll() {
         return null;
     }
 
     @Override
-    public SupplierContactPerson findById(Integer id) {
+    public SupplierContactPerson findById(Long id) {
         return null;
     }
 
@@ -24,7 +24,7 @@ public class SupplierContactPersonService implements AbstractService<SupplierCon
     }
 
     @Override
-    public boolean delete(Integer id) {
+    public boolean delete(Long id) {
         return false;
     }
 

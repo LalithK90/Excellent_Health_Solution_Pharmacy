@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class ConsultationService implements AbstractService<Consultations, Integer> {
+public class ConsultationService implements AbstractService<Consultations, Long> {
 
     private ConsultationDao consultationDao;
 
@@ -26,7 +26,7 @@ public class ConsultationService implements AbstractService<Consultations, Integ
     }
 
     @Transactional
-    public Consultations findById(Integer id) {
+    public Consultations findById(Long id) {
         return consultationDao.getOne(id);
     }
 
@@ -36,7 +36,7 @@ public class ConsultationService implements AbstractService<Consultations, Integ
     }
 
     @Transactional
-    public boolean delete(Integer id) {
+    public boolean delete(Long id) {
         consultationDao.deleteById(id);
         return false;
     }

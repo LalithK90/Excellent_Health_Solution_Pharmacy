@@ -13,7 +13,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class PatientService implements AbstractService<Patient, Integer> {
+public class PatientService implements AbstractService<Patient, Long> {
     private final PatientDao patientDao;
 
     @Autowired
@@ -27,7 +27,7 @@ public class PatientService implements AbstractService<Patient, Integer> {
     }
 
 
-    public Patient findById(Integer id) {
+    public Patient findById(Long id) {
         return patientDao.getOne(id);
     }
 
@@ -37,7 +37,7 @@ public class PatientService implements AbstractService<Patient, Integer> {
     }
 
 
-    public boolean delete(Integer id) {
+    public boolean delete(Long id) {
         patientDao.deleteById(id);
         return false;
     }

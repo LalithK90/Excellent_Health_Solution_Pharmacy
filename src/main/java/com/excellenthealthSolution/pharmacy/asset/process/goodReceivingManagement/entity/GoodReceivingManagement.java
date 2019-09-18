@@ -1,6 +1,5 @@
 package com.excellenthealthSolution.pharmacy.asset.process.goodReceivingManagement.entity;
 
-import com.excellenthealthSolution.pharmacy.security.entity.User;
 import com.excellenthealthSolution.pharmacy.util.audit.AuditEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;

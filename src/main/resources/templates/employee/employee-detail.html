@@ -7,7 +7,7 @@
 <body>
 <nav class="navbar navbar-default" th:replace="fragments/header :: header"></nav>
 <div class="container-fluid" style="margin-top: 60px">
-    <div class="panel panel-primary">
+    <div class="panel panel-primary" th:each="employeeDetail : ${employeeDetail}">
         <div class="panel panel-heading  text-center">
             <h4><span th:text="${employeeDetail.title.title}"></span> &nbsp; <span
                     th:text="${employeeDetail.name}"></span></h4>
@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="container-fluid">
                         <h4>
-                            Name : <span th:text="${employeeDetail.title.title}"></span> &nbsp; <span
+                            Name : <span th:text="${employeeDetail.title}"></span> &nbsp; <span
                                 th:text="${employeeDetail.name}"></span>
                         </h4>
                     </div>
@@ -54,13 +54,6 @@
                     <div class="container-fluid">
                         <h4>
                             Gender : <span th:text="${employeeDetail.gender.gender}"></span>
-                        </h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="container-fluid">
-                        <h4>
-                            Blood Group : <span th:text="${employeeDetail.bloodGroup.bloodGroup}"></span>
                         </h4>
                     </div>
                 </div>
@@ -133,7 +126,7 @@
                 <div class="row">
                     <div class="container-fluid">
                         <h4>
-                            Created Date : <span th:text="${employeeDetail.createdAt}"></span>
+                            Created Date : <span th:text="${{employeeDetail.createdAt}}"></span>
                         </h4>
                     </div>
                 </div>

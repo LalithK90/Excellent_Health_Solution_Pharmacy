@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 
-public interface DoctorDao extends JpaRepository<Doctor, Integer> {
+public interface DoctorDao extends JpaRepository<Doctor, Long> {
 }

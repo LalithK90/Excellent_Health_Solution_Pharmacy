@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 @Transactional// spring transactional annotation need to tell spring to this method work through the project
-public class EmployeeService implements AbstractService<Employee, Integer> {
+public class EmployeeService implements AbstractService<Employee, Long> {
 
     private EmployeeDao employeeDao;
 
@@ -26,7 +26,7 @@ public class EmployeeService implements AbstractService<Employee, Integer> {
     }
 
 
-    public Employee findById(Integer id) {
+    public Employee findById(Long id) {
         return employeeDao.getOne(id);
     }
 
@@ -36,7 +36,7 @@ public class EmployeeService implements AbstractService<Employee, Integer> {
     }
 
 
-    public boolean delete(Integer id) {
+    public boolean delete(Long id) {
         employeeDao.deleteById(id);
         return false;
     }

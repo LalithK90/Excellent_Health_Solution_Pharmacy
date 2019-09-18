@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public interface EmployeeDao extends JpaRepository<Employee, Integer> {
+public interface EmployeeDao extends JpaRepository<Employee, Long> {
     Employee findFirstByOrderByIdDesc();
 
 }

@@ -2,7 +2,6 @@
 package com.excellenthealthSolution.pharmacy.asset.prescriber.controller;
 
 import com.excellenthealthSolution.pharmacy.util.service.DateTimeAgeService;
-import com.excellenthealthSolution.pharmacy.security.service.UserService;
 import com.excellenthealthSolution.pharmacy.asset.prescriber.service.ConsultationService;
 import com.excellenthealthSolution.pharmacy.asset.prescriber.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,14 +31,14 @@ public class DoctorController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String doctorView(@PathVariable("id") Integer id, Model model) {
+    public String doctorView(@PathVariable("id") Long id, Model model) {
         model.addAttribute("doctorDetail", doctorService.findById(id));
         model.addAttribute("consultations", consultationService.findAll());
         return "doctor/doctor-detail";
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public String editDoctorFrom(@PathVariable("id") Integer id, Model model) {
+    public String editDoctorFrom(@PathVariable("id") Long id, Model model) {
         model.addAttribute("doctor", doctorService.findById(id));
         model.addAttribute("addStatus", false);
         model.addAttribute("consultations", consultationService.findAll());
@@ -64,7 +63,7 @@ public class DoctorController {
     @RequestMapping(value = {"/add","/update"}, method = RequestMethod.POST)
     public String addDoctor(@Valid @ModelAttribute Doctor doctor, BindingResult result, Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        Integer userId = userService.findByUserIdByUserName(auth.getName());
+        Long userId = userService.findByUserIdByUserName(auth.getName());
         if (result.hasErrors()) {
             for (FieldError error : result.getFieldErrors()) {
                 System.out.println(error.getField() + ": " + error.getDefaultMessage());
@@ -89,7 +88,7 @@ public class DoctorController {
     }
 
     @RequestMapping(value = "/remove/{id}", method = RequestMethod.GET)
-    public String removeDoctor(@PathVariable Integer id) {
+    public String removeDoctor(@PathVariable Long id) {
         doctorService.delete(id);
         return "redirect:/doctor";
     }

@@ -16,7 +16,7 @@ public class Consultations {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
 
     @Column(name = "name", nullable = false, length = 45)

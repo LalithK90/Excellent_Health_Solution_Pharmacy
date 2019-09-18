@@ -1,5 +1,5 @@
-/*
 package com.excellenthealthSolution.pharmacy.security.controller;
+
 
 import com.excellenthealthSolution.pharmacy.asset.employee.service.EmployeeService;
 import com.excellenthealthSolution.pharmacy.security.entity.User;
@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,9 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
 
-
 @Controller
-@RequestMapping( "/user" )
+@RequestMapping("/user")
 public class UserController {
     private final UserService userService;
     private final RoleService roleService;
@@ -27,8 +27,7 @@ public class UserController {
     private final DateTimeAgeService dateTimeAgeService;
 
     @Autowired
-    public UserController(UserService userService, EmployeeService employeeService,
-                          DateTimeAgeService dateTimeAgeService, RoleService roleService) {
+    public UserController(UserService userService, EmployeeService employeeService, DateTimeAgeService dateTimeAgeService, RoleService roleService) {
         this.userService = userService;
         this.employeeService = employeeService;
         this.dateTimeAgeService = dateTimeAgeService;
@@ -41,27 +40,27 @@ public class UserController {
         return "user/user";
     }
 
-    @RequestMapping( value = "/{id}", method = RequestMethod.GET )
-    public String userView(@PathVariable( "id" ) Integer id, Model model) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public String userView(@PathVariable("id") Long id, Model model) {
         model.addAttribute("userDetail", userService.findById(id));
         model.addAttribute("employee", userService.findById(id).getEmployee());
         return "user/user-detail";
     }
 
-    @RequestMapping( value = "/edit/{id}", method = RequestMethod.GET )
-    public String editUserFrom(@PathVariable( "id" ) Integer id, Model model) {
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String editUserFrom(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.findById(id));
         model.addAttribute("addStatus", false);
-        model.addAttribute("role", roleService.findAll());
+        model.addAttribute("roles", roleService.findAll());
         model.addAttribute("employee", employeeService.findAll());
         return "user/addUser";
     }
 
-    @RequestMapping( value = "/add", method = RequestMethod.GET )
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String userAddFrom(Model model) {
         model.addAttribute("addStatus", true);
         model.addAttribute("employee", employeeService.findAll());
-        model.addAttribute("role", roleService.findAll());
+        model.addAttribute("roles", roleService.findAll());
         model.addAttribute("user", new User());
         return "user/addUser";
     }
@@ -69,37 +68,42 @@ public class UserController {
     // Above method support to send data to front end - All List, update, edit
     //Bellow method support to do back end function save, delete, update, search
 
-    @RequestMapping( value = {"/add", "/update"}, method = RequestMethod.POST )
+    @RequestMapping(value = {"/add", "/update"}, method = RequestMethod.POST)
     public String addUser(@Valid @ModelAttribute User user, BindingResult result, Model model) {
-        if ( result.hasErrors() ) {
+
+        if (userService.findUserByEmployee(user.getEmployee()) != null) {
+            ObjectError error = new ObjectError("employee", "This user already defined ");
+            result.addError(error);
+        }
+        if (result.hasErrors()) {
             model.addAttribute("addStatus", true);
-            model.addAttribute("role", roleService.findAll());
+            model.addAttribute("roles", roleService.findAll());
             model.addAttribute("employee", employeeService.findAll());
             model.addAttribute("user", user);
             return "user/addUser";
         }
-        if ( user.isEnabled() ) {
-            userService.persist(user);
-        } else {
-            user.setEmployee(employeeService.findById(user.getEmployee().getId()));
+        if (user.isEnabled()) {
             user.setCreatedDate(dateTimeAgeService.getCurrentDate());
             user.setEnabled(true);
             userService.persist(user);
+        } else {
+            user.setCreatedDate(dateTimeAgeService.getCurrentDate());
+            user.setEnabled(true);
+            System.out.println(  userService.persist(user));
         }
         return "redirect:/user";
     }
 
 
-    @RequestMapping( value = "/remove/{id}", method = RequestMethod.GET )
-    public String removeUser(@PathVariable Integer id) {
+    @RequestMapping(value = "/remove/{id}", method = RequestMethod.GET)
+    public String removeUser(@PathVariable Long id) {
         userService.delete(id);
         return "redirect:/user";
     }
 
-    @RequestMapping( value = "/search", method = RequestMethod.GET )
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
     public String search(Model model, User user) {
         model.addAttribute("userDetail", userService.search(user));
         return "user/user-detail";
     }
 }
-*/

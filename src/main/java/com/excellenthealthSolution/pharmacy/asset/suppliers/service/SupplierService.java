@@ -8,7 +8,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 @Service
 @Transactional
-public class SupplierService implements AbstractService<Supplier, Integer > {
+public class SupplierService implements AbstractService<Supplier, Long> {
 
 
 
@@ -17,7 +17,7 @@ public class SupplierService implements AbstractService<Supplier, Integer > {
     }
 
 
-    public Supplier findById(Integer id) {
+    public Supplier findById(Long id) {
         return null;
     }
 
@@ -27,7 +27,7 @@ public class SupplierService implements AbstractService<Supplier, Integer > {
     }
 
 
-    public boolean delete(Integer id) {
+    public boolean delete(Long id) {
         return false;
     }
 

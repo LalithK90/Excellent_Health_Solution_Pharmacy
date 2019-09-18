@@ -41,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-/*        http.csrf().disable();
+       /* http.csrf().disable();
         http.authorizeRequests().antMatchers("/").permitAll();*/
 
         //for developing easy to give permission all link
@@ -55,6 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //Always users can access without login
                 .antMatchers(
                         "/index",
+                        "/test",
                         "/favicon.ico",
                         "/img/**",
                         "/css/**",
@@ -86,7 +87,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/index")
+                .logoutSuccessUrl("/login")
                 .and()
                 .exceptionHandling()
                 //Cross site disable

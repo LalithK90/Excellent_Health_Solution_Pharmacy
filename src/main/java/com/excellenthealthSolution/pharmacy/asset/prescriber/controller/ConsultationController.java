@@ -31,13 +31,13 @@ public class ConsultationController {
     }
 
 /*    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String consultationView(@PathVariable("id") Integer id, Model model) {
+    public String consultationView(@PathVariable("id") Long id, Model model) {
         model.addAttribute("consultationDetail", consultationService.findById(id));
         return "consultations/consultations-detail";
     }*/
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public String editConsultationFrom(@PathVariable("id") Integer id, Model model) {
+    public String editConsultationFrom(@PathVariable("id") Long id, Model model) {
         model.addAttribute("consultation", consultationService.findById(id));
         model.addAttribute("addStatus", false);
         return "consultations/addConsultation";
@@ -70,7 +70,7 @@ public class ConsultationController {
 
 
     @RequestMapping(value = "/remove/{id}", method = RequestMethod.GET)
-    public String removeConsultation(@PathVariable Integer id) {
+    public String removeConsultation(@PathVariable Long id) {
         consultationService.delete(id);
         return "redirect:/consultation";
     }

@@ -13,7 +13,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class DoctorService implements AbstractService<Doctor, Integer> {
+public class DoctorService implements AbstractService<Doctor, Long> {
     private final DoctorDao doctorDao;
 
 
@@ -29,7 +29,7 @@ public class DoctorService implements AbstractService<Doctor, Integer> {
     }
 
 
-    public Doctor findById(Integer id) {
+    public Doctor findById(Long id) {
         return doctorDao.getOne(id);
     }
 
@@ -39,7 +39,7 @@ public class DoctorService implements AbstractService<Doctor, Integer> {
     }
 
 
-    public boolean delete(Integer id) {
+    public boolean delete(Long id) {
         doctorDao.deleteById(id);
         return false;
     }
