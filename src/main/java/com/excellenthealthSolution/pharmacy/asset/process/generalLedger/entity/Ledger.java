@@ -1,42 +1,43 @@
 package com.excellenthealthSolution.pharmacy.asset.process.generalLedger.entity;
 
-import com.excellenthealthSolution.pharmacy.asset.medicine.entity.Medicine;
-import com.excellenthealthSolution.pharmacy.asset.process.finance.entity.Invoice;
-import com.excellenthealthSolution.pharmacy.util.audit.AuditEntity;
+import com.excellenthealthSolution.pharmacy.asset.item.entity.Item;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.sound.sampled.AudioFileFormat;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode( callSuper = true )
-public class Ledger extends AuditEntity {
+@EqualsAndHashCode()
+public class Ledger {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    private Integer quantity;
+    @Column(unique = true)
+    private String code;
 
+    @Column(nullable = false)
     private Integer availableQuantity;
 
-    private Integer quantityLimit;
+    @Column(nullable = false)
+    private BigDecimal cost;
 
+    @Column(nullable = false)
     private BigDecimal salePrice;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Medicine medicine;
+    @Column(nullable = false)
+    private int reorderLimit;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private Invoice invoice;
+    private Item item;
 
+    private LocalDate updatedAt;
 
-
-
-    //todo => medicine
-
-    //quantity price so many thing
-
+    private LocalDate createdAt;
 
 }

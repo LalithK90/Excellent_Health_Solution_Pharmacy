@@ -1,8 +1,8 @@
 package com.excellenthealthSolution.pharmacy.security.service;
 
-
-import com.brothers.premasiri.security.CustomerUserDetails;
-import com.brothers.premasiri.security.dao.UserDao;
+import com.excellenthealthSolution.pharmacy.security.CustomerUserDetails;
+import com.excellenthealthSolution.pharmacy.security.dao.UserDao;
+import com.excellenthealthSolution.pharmacy.security.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

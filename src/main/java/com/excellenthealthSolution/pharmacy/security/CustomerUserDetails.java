@@ -2,6 +2,7 @@ package com.excellenthealthSolution.pharmacy.security;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import com.excellenthealthSolution.pharmacy.security.entity.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
@@ -9,13 +10,16 @@ import java.util.stream.Collectors;
 
 public class CustomerUserDetails implements UserDetails {
 
-    private User user;
+private User user;
+
+    public CustomerUserDetails() {
+
+    }
 
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-
-        return user.getRoles()
+    return user.getRoles()
                 .stream()
                 .map(role -> new SimpleGrantedAuthority("ROLE_" + role.getRoleName()))
                 .collect(Collectors.toList());
@@ -58,4 +62,6 @@ public class CustomerUserDetails implements UserDetails {
     public void setUser(User user) {
         this.user = user;
     }
+
+
 }

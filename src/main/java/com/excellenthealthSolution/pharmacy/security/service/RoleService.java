@@ -1,5 +1,6 @@
 package com.excellenthealthSolution.pharmacy.security.service;
 
+
 import com.excellenthealthSolution.pharmacy.security.dao.RoleDao;
 import com.excellenthealthSolution.pharmacy.security.entity.Role;
 import com.excellenthealthSolution.pharmacy.util.interfaces.AbstractService;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class RoleService implements AbstractService< Role, Long> {
+public class RoleService implements AbstractService< Role, Integer> {
     private final RoleDao roleDao;
 
     @Autowired
@@ -23,12 +24,12 @@ public class RoleService implements AbstractService< Role, Long> {
 
 
 
-    public List< Role > findAll() {
+    public List<Role> findAll() {
         return roleDao.findAll();
     }
 
 
-    public Role findById(Long id) {
+    public Role findById(Integer id) {
         return roleDao.getOne(id);
     }
 
@@ -38,7 +39,7 @@ public class RoleService implements AbstractService< Role, Long> {
     }
 
 
-    public boolean delete(Long id) {
+    public boolean delete(Integer id) {
         roleDao.deleteById(id);
         return false;
     }

@@ -2,11 +2,12 @@ package com.excellenthealthSolution.pharmacy.asset.process.finance.entity;
 
 import com.excellenthealthSolution.pharmacy.util.audit.AuditEntity;
 import lombok.*;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @Entity
 @Getter

@@ -1,8 +1,10 @@
 package com.excellenthealthSolution.pharmacy.asset.employee.service;
 
-import com.excellenthealthSolution.pharmacy.util.interfaces.AbstractService;
+
 import com.excellenthealthSolution.pharmacy.asset.employee.dao.EmployeeDao;
 import com.excellenthealthSolution.pharmacy.asset.employee.entity.Employee;
+import com.excellenthealthSolution.pharmacy.util.interfaces.AbstractService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
@@ -12,11 +14,12 @@ import java.util.List;
 
 @Service
 @Transactional// spring transactional annotation need to tell spring to this method work through the project
-public class EmployeeService implements AbstractService<Employee, Long> {
+public class EmployeeService implements AbstractService< Employee, Integer> {
 
     private EmployeeDao employeeDao;
 
-    public EmployeeService(EmployeeDao employeeDao){
+    @Autowired
+    public EmployeeService(EmployeeDao employeeDao) {
         this.employeeDao = employeeDao;
     }
 
@@ -26,17 +29,18 @@ public class EmployeeService implements AbstractService<Employee, Long> {
     }
 
 
-    public Employee findById(Long id) {
+    public Employee findById(Integer id) {
+        System.out.println("im came here");
         return employeeDao.getOne(id);
     }
 
 
     public Employee persist(Employee employee) {
-                 return employeeDao.save(employee);
+        return employeeDao.save(employee);
     }
 
 
-    public boolean delete(Long id) {
+    public boolean delete(Integer id) {
         employeeDao.deleteById(id);
         return false;
     }
@@ -50,12 +54,12 @@ public class EmployeeService implements AbstractService<Employee, Long> {
         return employeeDao.findAll(employeeExample);
     }
 
-    public boolean isEmployeePresent(Employee employee){
+    public boolean isEmployeePresent(Employee employee) {
         return employeeDao.equals(employee);
     }
 
 
-    public Employee lastEmployee(){
+    public Employee lastEmployee() {
         return employeeDao.findFirstByOrderByIdDesc();
     }
 

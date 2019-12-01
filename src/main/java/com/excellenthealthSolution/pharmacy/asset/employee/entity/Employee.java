@@ -1,5 +1,6 @@
 package com.excellenthealthSolution.pharmacy.asset.employee.entity;
 
+
 import com.excellenthealthSolution.pharmacy.asset.commonAsset.Enum.Gender;
 import com.excellenthealthSolution.pharmacy.asset.commonAsset.Enum.Title;
 import com.excellenthealthSolution.pharmacy.asset.employee.entity.Enum.CivilStatus;
@@ -9,18 +10,20 @@ import com.excellenthealthSolution.pharmacy.util.audit.AuditEntity;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Entity
-@Getter
 @Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode( callSuper = true )
+@ToString
 public class Employee extends AuditEntity {
 
     @NotNull(message = "Number is required")
@@ -47,6 +50,7 @@ public class Employee extends AuditEntity {
     @Enumerated(EnumType.STRING)
     private CivilStatus civilStatus;
 
+
     //@Pattern(regexp = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$",message = "Please provide valid email")
     @Email
     private String email;
@@ -55,6 +59,7 @@ public class Employee extends AuditEntity {
     private String mobile;
 
     private String land;
+
 
     @Size(min = 5, message = "Should be need to provide valid address !!")
     private String address;
@@ -66,6 +71,6 @@ public class Employee extends AuditEntity {
     private EmployeeStatus employeeStatus;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate dateOfAssignment;
+    private LocalDate doassignment;
 
 }

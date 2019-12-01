@@ -15,12 +15,12 @@ import java.time.LocalDateTime;
 @Data
 @MappedSuperclass
 @EntityListeners( AuditingEntityListener.class )
-@JsonIgnoreProperties( value = {"id", "createdAt", "updatedAt", "createdBy", "updatedBy"}, allowGetters = true )
+@JsonIgnoreProperties( value = {"id","createdAt", "updatedAt", "createdBy", "updatedBy"}, allowGetters = true )
 public abstract class AuditEntity {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
-    private Long id;
+    private Integer id;
 
     @CreatedDate
     @Basic( optional = false )

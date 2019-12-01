@@ -11,7 +11,6 @@ public enum EmployeeStatus {
     private final String employeeStatus;
 
     EmployeeStatus(String employeeStatus) {
-
         this.employeeStatus = employeeStatus;
     }
 

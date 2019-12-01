@@ -1,7 +1,6 @@
 package com.excellenthealthSolution.pharmacy.asset.commonAsset.Enum;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.*;
 
 @Getter
 @AllArgsConstructor
@@ -23,4 +22,6 @@ public enum Title {
     NO("OPR");
 
     private final String title;
+
+
 }

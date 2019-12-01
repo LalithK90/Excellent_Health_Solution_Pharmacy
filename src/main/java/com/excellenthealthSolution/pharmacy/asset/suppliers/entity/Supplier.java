@@ -1,24 +1,32 @@
 package com.excellenthealthSolution.pharmacy.asset.suppliers.entity;
 
-import com.excellenthealthSolution.pharmacy.util.audit.AuditEntity;
+import com.excellenthealthSolution.pharmacy.asset.commonAsset.entity.SupplierItem;
 import lombok.*;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table
-@Getter
 @Setter
-@NoArgsConstructor
+@Getter
+@EqualsAndHashCode
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
-@EqualsAndHashCode( callSuper = true )
-public class Supplier extends AuditEntity {
+public class Supplier {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(unique = true)
+    private String code;
+
+    @Column(unique = true)
     @Size(min = 4, message = "Provide valid name")
     private String name;
 
@@ -26,9 +34,28 @@ public class Supplier extends AuditEntity {
     private String address;
 
     @Size(min = 10, message = "Provide valid phone number")
-    private String number;
+    private String land;
 
     @Email(message = "Provide valid email")
     private String email;
+
+    private String contactName;
+
+    @Transient
+    private List<Integer> ids;
+
+    @OneToMany(mappedBy = "supplier")
+    private List< SupplierItem > supplierItems = new ArrayList<>();
+
+    @Size(min = 10, message = "Provide valid phone number")
+    private String contactMobile;
+
+    @Email(message = "Provide valid email")
+    private String contactEmail;
+
+    private LocalDate updatedAt;
+
+    private LocalDate createdAt;
+
 
 }

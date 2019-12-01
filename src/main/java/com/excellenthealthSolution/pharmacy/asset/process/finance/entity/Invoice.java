@@ -1,7 +1,6 @@
 package com.excellenthealthSolution.pharmacy.asset.process.finance.entity;
 
-import com.excellenthealthSolution.pharmacy.asset.prescriber.entity.Doctor;
-import com.excellenthealthSolution.pharmacy.asset.patient.entity.Patient;
+import com.excellenthealthSolution.pharmacy.asset.customer.entity.Customer;
 import com.excellenthealthSolution.pharmacy.asset.process.finance.entity.Enum.InvoicePrintOrNot;
 import com.excellenthealthSolution.pharmacy.asset.process.finance.entity.Enum.PaymentMethod;
 import com.excellenthealthSolution.pharmacy.util.audit.AuditEntity;
@@ -12,7 +11,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -68,22 +66,23 @@ public class Invoice extends AuditEntity {
 
 
     @ManyToOne
-    private Patient patient;
-
-/*    @ManyToOne
+    private Customer customer;
+/*
+    @ManyToOne
     private Branch branch;*/
+
 
     @ManyToOne
     private DiscountRatio discountRatio;
 
 
-    @ManyToOne
-    private Doctor doctor;
+    /*@ManyToOne
+    private Doctor doctor;*/
 
-/*
-    @OneToMany(fetch = FetchType.EAGER)
+    /*@OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "invoice_id")
     private List<> invoiceHasLabTests = new ArrayList<>();*/
+
 
 
 }

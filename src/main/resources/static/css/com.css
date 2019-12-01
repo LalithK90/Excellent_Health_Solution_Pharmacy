@@ -14,11 +14,10 @@
 	margin-top: 6px;
 	border-radius: 20px !important;
 	border: 2px solid black !important;
-	height: 85vh; 
-	overflow: hidden;
+   	height: 85vh;
+	overflow:hidden;
   display: block;
 }
-
 .subdiv{
 	margin:10px;
 
@@ -31,7 +30,7 @@
 	 padding: 1px !important;
 }
 .container input{
-  width: 70%;
+  width: 90%;
   clear: both;
 
 }
@@ -52,16 +51,10 @@
 	overflow: scroll;
 }
 input::placeholder {
-  color: #3399ff !important;
+  color: #acabab !important;
 }
-.header{
-	display: inline-flexbox;
-	color: #004d99;
+.tablemod{
 	font-weight: 900;
 	font-size: 120%;
-	font-family: Calibri;
-}
-.modal-main{
-	width: 60%;
-	height: 50vh;
+	position: static;
 }

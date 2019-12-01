@@ -1,7 +1,8 @@
 package com.excellenthealthSolution.pharmacy.security.controller;
 
-import com.brothers.premasiri.security.entity.User;
-import com.brothers.premasiri.security.service.UserService;
+import com.excellenthealthSolution.pharmacy.security.entity.PasswordChange;
+import com.excellenthealthSolution.pharmacy.security.entity.User;
+import com.excellenthealthSolution.pharmacy.security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
