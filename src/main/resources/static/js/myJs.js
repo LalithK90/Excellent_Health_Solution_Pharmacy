@@ -16,7 +16,7 @@ $(document).ready(function () {
 
 //todo --> need to create checkbox select or notR
 
-        $(e.currentTarget).children('th').css('background-color', '#00FFFF');
+        // $(e.currentTarget).children('th').css('background-color', '#00FFFF');
 
         checkLabTestInArrayOrNot($(e.currentTarget).children('th'));
     });
@@ -61,6 +61,7 @@ let nameRegex = /^[a-zA-Z]{2}[ a-zA-Z]+$/;
 let numberRegex = /^([eE][hH][sS][\d]+)$/;
 let invoiceNumberRegex = /^[0-9]{10}$/;
 let priceRegex = /^[0-9]+[.][0-9][0-9]$/;
+let qtyRegex = /^([1-9][0-9]*)$/;
 let onlyNumberRegex = /^[0-9]*$/;
 
 
@@ -231,7 +232,7 @@ function calculateGender(nic) {
 /*//Nic - gender - end//*/
 
 //mobile number and land number validation
-$("#mobile").bind("keyup", function () {
+$("#mobile, #mobileValue").bind("keyup", function () {
     let mobile = $(this).val();
     if (mobileRegex.test(mobile)) {
         backgroundColourChangeGood($(this));
@@ -319,6 +320,16 @@ $("#selling").bind("keyup", function () {
     }
 });
 
+//Quantity Validation
+$("#qty").bind("keyup", function () {
+    let qty = $(this).val();
+    if (qtyRegex.test(qty)) {
+        backgroundColourChangeGood($(this));
+    } else {
+        backgroundColourChangeBad($(this));
+    }
+});
+
 
 //colour change function --start
 function backgroundColourChangeGood(id) {
@@ -363,7 +374,7 @@ async function getData(url) {
 
 // conformation message and to login page
 function conformationAndLoginWindow() {
-    let message = "There is no way to access to the system without  re-login \n Please click \'Ok\' to login";
+    let message = "Please give me a time to refresh";
     swal({
         title: "Attention !",
         icon: "warning",
@@ -374,8 +385,7 @@ function conformationAndLoginWindow() {
         },
     }).then(value => {
         if (value) {
-            let loginUrl = window.location.protocol + "/login";
-            window.open(loginUrl, '_self');
+            location.reload();
         }
     });
 }
@@ -463,13 +473,17 @@ $("#startDate").bind("input", function () {
 });
 $("#endDate").bind("input", function () {
     let endDate = document.getElementById("endDate").value;
+    let startDate = document.getElementById("startDate").value;
     let milliSecondToDay = Date.parse(new Date());
 //only start date has value
     if (endDate.length !== 0) {
-        let milliSecondStartDate = Date.parse(endDate);
-        if (milliSecondToDay > milliSecondStartDate) {
+        let milliSecondEndDate = Date.parse(endDate);
+        let milliSecondStartDate = Date.parse(startDate);
+console.log(milliSecondStartDate,milliSecondEndDate);
+        if (milliSecondToDay > milliSecondEndDate) {
             backgroundColourChangeGood($(this));
-        } else {
+        }
+        if (milliSecondEndDate < milliSecondStartDate || milliSecondToDay < milliSecondEndDate) {
             backgroundColourChangeBad($(this));
         }
     } else {
@@ -486,8 +500,7 @@ $("#btnSummaryFind").bind("mouseover", function () {
         let milliSecondStartDate = Date.parse(startDate);
         let milliSecondEndDate = Date.parse(endDate);
 
-        if (milliSecondToDay < milliSecondStartDate || milliSecondToDay < milliSecondEndDate) {
-
+        if (milliSecondToDay < milliSecondStartDate || milliSecondToDay < milliSecondEndDate || milliSecondEndDate < milliSecondStartDate) {
             swal({
                 title: "Date range is not valid",
                 icon: "warning",
